@@ -48,8 +48,9 @@ A **Streamlit web app** is provided for interactive use — allowing users to in
 | Layer Type | Units | Activation | Description |
 |-------------|--------|-------------|--------------|
 | Input Layer | 12 | - | Preprocessed numerical + encoded categorical features |
-| Dense | 16 | ReLU | First hidden layer |
-| Dense | 8 | ReLU | Second hidden layer |
+| Dense | 64 | ReLU | First hidden layer |
+| Dense | 32 | ReLU | Second hidden layer |
+| Dense | 32 | ReLU | Third hidden layer |
 | Output | 1 | Sigmoid | Outputs churn probability (0–1) |
 
 **Loss:** Binary Crossentropy  
