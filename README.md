@@ -85,33 +85,39 @@ Achieved:
 git clone https://github.com/mridul0010/customer-churn-prediction.git
 cd customer-churn-prediction
 ```
+
+
 ### 2. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 3. Run the Streamlit app
+```bash
 streamlit run app.py
+```
 
 ### 4. Open in browser
-Visit → https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app/
+```bash
+https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app/
+```
 
+---
 
+## 🧠 Example Usage
 
-🧠 Example Usage
+1. Input customer details in the sidebar (e.g., Age, Geography, Tenure, etc.)
 
-Input customer details in the sidebar (e.g., Age, Geography, Tenure, etc.)
+2. Click “🚀 Predict Churn Risk”
 
-Click “🚀 Predict Churn Risk”
+3. The model returns:
+  - Churn probability (in %)
+  - Risk level (Low / Moderate / High)
+  - Data-driven recommendations for action
 
-The model returns:
+---
 
-Churn probability (in %)
-
-Risk level (Low / Moderate / High)
-
-Data-driven recommendations for action
-
-
-🧾 Requirements
+## 🧾 Requirements
 tensorflow==2.20.0
 pandas
 numpy
@@ -120,14 +126,17 @@ tensorboard
 matplotlib
 streamlit
 
+---
 
-📊 Screenshots
+## 📊 Screenshots
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/44185aec-d5d1-4011-86f6-8b30bacfc0f5" />
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/8623e52c-a28a-4403-ae68-5331fde5a58e" />
 
-🧩 Future Improvements
+--- 
+
+## 🧩 Future Improvements
 
 - Add SHAP-based feature importance visualization.
 
@@ -137,8 +146,9 @@ streamlit
 
 - Deploy app on Streamlit Cloud or AWS EC2.
 
+---
 
-👩‍💻 Author
+## 👩‍💻 Author
 
 Mridul Lata
 📍 Jaipur, India
@@ -146,6 +156,8 @@ Mridul Lata
 🔗 www.linkedin.com/in/mridullata
  | https://github.com/mridul0010/Customer-Churn-Prediction-Using-ANN
 
+---
 
  ⭐ If you found this helpful, please give the repository a star and share your feedback!
 
+---
