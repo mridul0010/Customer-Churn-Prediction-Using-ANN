@@ -144,9 +144,7 @@ https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/c83f6289-2db9-4f22-b11e-59dc92a1d920" />
 
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/f576becc-1f78-458c-88ae-1d439ea4f6eb" />
-
-
+<img width="1919" height="1075" alt="image" src="https://github.com/user-attachments/assets/a17afebf-76fa-4ae5-bacd-3686979d1dc1" />
 
 --- 
 
