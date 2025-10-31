@@ -83,7 +83,7 @@ def predict_churn(data):
 
 # --- Streamlit UI Design ---
 
-st.markdown("## 📊 **Customer Churn Risk Assessment Tool**") 
+st.markdown("## 📊 **Bank Customer Churn Risk Assessment Tool**") 
 st.markdown("Use the **sidebar** to define the customer profile and calculate their churn risk.")
 
 # Sidebar for Input Features
