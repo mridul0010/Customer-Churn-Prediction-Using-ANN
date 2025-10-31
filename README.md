@@ -12,6 +12,7 @@ A **Streamlit web app** is provided for interactive use — allowing users to in
 ---
 
 ## 📂 Project Structure
+├── 1_Analytics.ipynb # Data Analysis notebook
 
 ├── 2_Churn_Modelling_Training.ipynb # Model training notebook
 
