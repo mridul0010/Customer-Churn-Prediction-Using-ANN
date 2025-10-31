@@ -14,12 +14,19 @@ A **Streamlit web app** is provided for interactive use — allowing users to in
 ## 📂 Project Structure
 
 ├── 2_Churn_Modelling_Training.ipynb # Model training notebook
+
 ├── 3_Churn_Modelling_Predict.ipynb # Model prediction notebook
+
 ├── Churn_Modelling.csv # Dataset used for training
+
 ├── model.keras # Trained ANN model (TensorFlow/Keras)
+
 ├── preprocessed.pkl # Preprocessing pipeline (ColumnTransformer)
+
 ├── app.py # Streamlit web application
+
 ├── requirements.txt # Project dependencies
+
 └── README.md # Project documentation
 
 
