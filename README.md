@@ -118,13 +118,13 @@ https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app
 ---
 
 ## 🧾 Requirements
-tensorflow==2.20.0
-pandas
-numpy
-scikit-learn
-tensorboard
-matplotlib
-streamlit
+- tensorflow==2.20.0
+- pandas
+- numpy
+- scikit-learn
+- tensorboard
+- matplotlib
+- streamlit
 
 ---
 
@@ -151,10 +151,14 @@ streamlit
 ## 👩‍💻 Author
 
 Mridul Lata
+
 📍 Jaipur, India
+
 💼 Aspiring Data Scientist / ML Engineer
+
 🔗 www.linkedin.com/in/mridullata
- | https://github.com/mridul0010/Customer-Churn-Prediction-Using-ANN
+
+🔗 https://github.com/mridul0010/Customer-Churn-Prediction-Using-ANN
 
 ---
 
