@@ -39,7 +39,7 @@ A **Streamlit web app** is provided for interactive use — allowing users to in
 - **Dataset:** `Churn_Modelling.csv`  
 - Removed irrelevant columns (e.g., `RowNumber`, `CustomerId`, `Surname`)
 - Encoded categorical variables:
-  - `Gender` → Ordinal Encoding
+  - `Gender` → Label Encoding
   - `Geography` → One-Hot Encoding
 - Normalized numerical features using **StandardScaler**
 - Combined all transformations into a unified **ColumnTransformer**, saved as `preprocessed.pkl`
