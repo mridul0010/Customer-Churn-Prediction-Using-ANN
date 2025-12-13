@@ -143,13 +143,14 @@ https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app
 
 ## 📊 Screenshots
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/4d4b4a7e-2c8e-426c-8e3a-4d2f75d32118" />
+<img width="1848" height="998" alt="image" src="https://github.com/user-attachments/assets/add4d33f-75fb-4cef-a4fc-8680218178aa" />
 
+<img width="1908" height="1075" alt="image" src="https://github.com/user-attachments/assets/14ff7043-e82d-4c5d-ae70-cc33f2d7a08d" />
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/41711dba-9e40-4629-a3b4-842f3ac64f4f" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/400de439-eec3-4f78-a84f-e50f7ad884fe" />
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/519a4be4-8101-41f2-b2dd-1124600d9eb1" />
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/fab3cd0c-5ace-4e8b-9d17-c8246d8da40c" />
 
 
 
