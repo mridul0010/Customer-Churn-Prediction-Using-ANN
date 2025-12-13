@@ -224,21 +224,38 @@ with col2:
             st.dataframe(pd.DataFrame([input_data]), use_container_width=True)
             st.text(f"Raw Model Output (Probability of Churn): {churn_probability:.6f}")
             
-    # --- Model Performance Summary Section ---
+    # --- New Section: Data Insights on Churn ---
     st.markdown("---")
-    st.subheader("Model Performance Summary")
-    
+    st.subheader("📊 Key Data Insights: When Churn Happens")
     st.markdown("""
-    This summarizes the performance of the underlying **Artificial Neural Network (ANN)** model 
-    on the validation dataset after training.
+    Based on the patterns observed in the bank's historical customer data, churn is not random. It is strongly influenced by specific feature values. Understanding these thresholds helps in interpreting the prediction.
     """)
     
-    # Metrics taken from the ANN training log in 2_Churn_Modelling_Training.ipynb (Epoch 38 was val_acc=0.8655, val_loss=0.3334)
-    # Total trainable params from notebook: 87,858
-    col_metrics_a, col_metrics_b, col_metrics_c = st.columns(3)
     
-    col_metrics_a.metric("Validation Accuracy", "86.23%", "Peak Performance") 
-    col_metrics_b.metric("Validation Loss", "0.3362", "Lowest Loss")
-    col_metrics_c.metric("Trainable Parameters", "87,858", "4 Hidden Layers")
+    st.markdown("---")
+    
+    col_insights_1, col_insights_2 = st.columns(2)
+    
+    with col_insights_1:
+        st.markdown("### 🛑 High Churn Indicators")
+        st.markdown("""
+        These conditions significantly **increase** the likelihood of a customer leaving the bank:
+        * **Geography (Germany):** Customers from Germany show a disproportionately higher churn rate compared to France and Spain.
+        * **Age (Mid-Age Peak):** Churn risk is often highest in the **40-60 age bracket**, suggesting these customers are actively seeking better opportunities.
+        * **Account Balance (High):** Customers with a high balance, especially those with no other significant engagement, are a major flight risk (high-value churn).
+        * **Inactive Member:** Customers marked as inactive (IsActiveMember = 0) are about **3 to 4 times** more likely to churn than active members.
+        * **Number of Products (2 or Less):** Customers holding only 1 or 2 products show higher churn, while having **more than 2** (e.g., 3 or 4) products is a very strong churn indicator, suggesting product dissatisfaction or overload.
+        """)
 
+    with col_insights_2:
+        st.markdown("### ✅ Low Churn Indicators")
+        st.markdown("""
+        These conditions are associated with a **stable** and loyal customer base:
+        * **Geography (France/Spain):** Customers in these regions are generally less likely to churn.
+        * **Age (Young/Senior):** Very young (18-30) and very old (65+) customers typically show lower churn rates.
+        * **Tenure (Long):** Customers with **Tenure > 8 years** are highly loyal.
+        * **Credit Score (Excellent):** Customers with a very high Credit Score (**> 800**) are less likely to churn, though this feature is not the single most dominant factor.
+        * **Has Credit Card:** The presence of a credit card is often associated with slightly **lower churn**, suggesting a basic level of product stickiness.
+        """)
+    
     st.markdown("---")
