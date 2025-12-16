@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import xgboost as xgb  # Required for unpickling the XGBClassifier inside the pipeline
+from xgboost import XGBClassifier  # Required for unpickling the XGBClassifier inside the pipeline
 
 # --- 1. Load the Pipeline (Cached for performance) ---
 
@@ -235,3 +235,4 @@ with col2:
         """)
     
     st.markdown("---")
+
