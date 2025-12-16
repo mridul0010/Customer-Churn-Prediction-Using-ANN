@@ -134,7 +134,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### 4. Open in browser
+### 4. **Project Link**
 ```bash
 https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app/
 ```
