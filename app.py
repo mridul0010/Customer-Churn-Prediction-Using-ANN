@@ -2,80 +2,56 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import tensorflow as tf
-from tensorflow import keras
-import os 
-from sklearn.compose import ColumnTransformer 
+import xgboost as xgb  # Required for unpickling the XGBClassifier inside the pipeline
 
-# --- Suppress TensorFlow warnings and logging ---
-# Set environment variable to suppress all TensorFlow C++ logs (warnings and errors)
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-
-# Define the custom objects used in the model architecture (LeakyReLU is used as 'leaky_relu')
-custom_objects = {
-    # Custom L2 regularizer wrapper to ensure compatibility when loading from keras_tuner
-    'L2': tf.keras.regularizers.l2,
-    # Standard Keras layers and functions
-    'LeakyReLU': tf.keras.layers.LeakyReLU
-}
-
-# --- 1. Load Model and Preprocessor (Cached for performance) ---
+# --- 1. Load the Pipeline (Cached for performance) ---
 
 @st.cache_resource
-def load_artifacts():
-    """Loads the trained model and the unified preprocessor."""
+def load_pipeline():
+    """Loads the trained machine learning pipeline."""
     try:
-        # Load the Keras model (ANN in this case)
-        with st.spinner("Loading model..."):
-            # compile=False prevents issues with optimizer state when just predicting
-            model = keras.models.load_model('model.keras', custom_objects=custom_objects, compile=False)
-
-        # Load the ColumnTransformer preprocessor object
-        with open('preprocessed.pkl' , 'rb') as file:
-            preprocessor = pickle.load(file) 
-
-        return model, preprocessor
+        # Load the complete pipeline (Preprocessor + XGBoost Model)
+        with open('pipeline.pkl', 'rb') as file:
+            pipeline = pickle.load(file)
+        return pipeline
     except FileNotFoundError:
-        st.error("Error: Required model (model.keras) or preprocessor (preprocessed.pkl) not found. Please ensure all files are uploaded.")
+        st.error("Error: 'pipeline.pkl' not found. Please ensure the file is uploaded to the directory.")
         st.stop()
     except Exception as e:
-        st.error(f"An error occurred during artifact loading: {e}")
+        st.error(f"An error occurred during pipeline loading: {e}")
         st.stop()
 
-# Load all resources once
-model, preprocessor = load_artifacts()
+# Load resource once
+pipeline = load_pipeline()
 
 # --- Prediction Function ---
 
 def predict_churn(data):
     """
-    Takes a dictionary of input data, prepares it, and runs it through the unified preprocessor 
-    before making a prediction.
+    Takes a dictionary of input data, converts it to a DataFrame, 
+    and uses the pipeline to predict churn probability.
     """
     # 1. Create DataFrame from input
     input_df = pd.DataFrame([data])
     
-    # Define the exact column order expected by the preprocessor
-    # This MUST match the column order from the training data (X)
+    # Define the exact column order expected by the pipeline during training
+    # Based on the training notebook, the feature order is:
     expected_feature_order = [
         'CreditScore', 'Geography', 'Gender', 'Age', 'Tenure', 
         'Balance', 'NumOfProducts', 'HasCrCard', 'IsActiveMember', 
         'EstimatedSalary'
     ]
     
-    # Select and reorder columns to match the preprocessor's input expectation
+    # Select and reorder columns to match the pipeline's expectation
     ordered_input_df = input_df[expected_feature_order]
 
-    # 2. Apply unified preprocessor transform (OHE, Ordinal Encoding, and Scaling)
-    input_scaled = preprocessor.transform(ordered_input_df)
+    # 2. Prediction
+    # The pipeline handles preprocessing automatically.
+    # predict_proba returns an array of shape (n_samples, n_classes).
+    # We want the probability of class 1 (Exited/Churn), which is at index 1.
+    prediction_prob = pipeline.predict_proba(ordered_input_df)[0][1]
     
-    # 3. Prediction (using verbose=0 to suppress prediction log output)
-    prediction = model.predict(input_scaled, verbose=0)
-    
-    # 4. Extract probability and convert to standard Python float
-    pred_prob = float(prediction[0][0])
-    
-    return pred_prob
+    return float(prediction_prob)
 
 
 # --- Streamlit UI Design ---
