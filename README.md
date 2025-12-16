@@ -1,13 +1,27 @@
-# Customer-Churn-Prediction-Using-ANN
+# Customer Churn Prediction Using Machine Learning & Deep Learning
 Customer Churn Prediction using Deep Learning (ANN). Full workflow from EDA and feature analysis to model training and prediction.
 
-# 🧠 Customer Churn Prediction using Deep Learning (ANN)
+## 📌 Project Overview
 
-### 🚀 Project Overview
-This project predicts **customer churn probability** for a bank using a **Deep Learning Artificial Neural Network (ANN)**.  
-The model analyzes customer demographics, account details, and financial behavior to assess the risk of churn, empowering businesses to proactively engage and retain at-risk clients.
+This repository implements a **customer churn prediction system** for a banking dataset using a **comparative machine learning approach**. Multiple models were trained and evaluated, and **XGBoost was selected as the final production model**, while an **Artificial Neural Network (ANN)** was implemented as a benchmark to demonstrate deep learning understanding.
+
+The project emphasizes **model comparison, data-driven model selection, interpretability, and deployment readiness**, rather than focusing on accuracy alone.
+
+---
 
 A **Streamlit web app** is provided for interactive use — allowing users to input customer details and receive a real-time churn risk assessment.
+
+---
+
+## 🧠 Problem Statement
+
+Customer churn significantly impacts business revenue. The objective of this project is to **predict whether a customer is likely to leave the bank**, enabling proactive retention strategies.
+
+### Key Challenges
+
+* Imbalanced dataset (churn vs non-churn)
+* Need to correctly identify churned customers (Recall-focused)
+* Requirement for interpretable models in business settings
 
 ---
 
@@ -34,60 +48,73 @@ A **Streamlit web app** is provided for interactive use — allowing users to in
 
 ## 🧩 Model Development Workflow
 
-### 1. Data Preprocessing
-- **Dataset:** `Churn_Modelling.csv`  
-- Removed irrelevant columns (e.g., `id`, `CustomerId`, `Surname`)
-- Encoded categorical variables:
-  - `Gender` → Ordinal Encoding
-  - `Geography` → One-Hot Encoding
-- Normalized numerical features using **StandardScaler**
-- Combined all transformations into a unified **ColumnTransformer**, saved as `preprocessed.pkl`
+### 1️⃣ Data Preprocessing
 
-### 2. Model Architecture (ANN)
-| Layer Type | Units | Activation | Description |
-|-------------|--------|-------------|--------------|
-| Input Layer | 12 | - | Preprocessed numerical + encoded categorical features |
-| Dense | 86 | relu | First hidden layer |
-| Dropout | 0.4 | - | First Dropout layer |
-| Dense | 173 | leaky_relu | Second hidden layer |
-| Dropout | 0.3 | - | Second Dropout layer |
-| Dense | 238 | leaky_relu | Third hidden layer |
-| Dropout | 0.4 | - | Third Dropout layer |
-| Dense | 121 | relu | Forth hidden layer |
-| Dropout | 0.4 | - | Forth Dropout layer |
-| Output | 1 | Sigmoid | Outputs churn probability (0–1) |
-
-**Loss:** Binary Crossentropy  
-**Optimizer:** Adam  
-**Metric:** Accuracy
-
-Achieved:
-- ✅ **Validation Accuracy:** ~86%
-- 📉 **Validation Loss:** ~0.33
+* Removed non-informative features (Customer ID, Surname)
+* Encoded categorical variables (Gender, Geography)
+* Scaled numerical features
+* Handled class imbalance using **SMOTE**
+* Saved preprocessing pipeline (`preprocessed.pkl`) for consistent inference
 
 ---
 
-## 💡 Key Insights
-- **Older**, **inactive**, or **low-credit-score** customers have a higher churn risk.
-- **Active members** with multiple products and good credit scores are less likely to leave.
-- **Balance** and **Tenure** also influence customer loyalty patterns.
+### 2️⃣ Model Training & Selection
+
+All experiments and comparisons are documented in **`Model_Selection.ipynb`**.
+
+#### Models Evaluated
+
+* **XGBoost (Final Model)**
+* Random Forest
+* Artificial Neural Network (ANN – TensorFlow/Keras)
+
+All models achieved similar accuracy (~86%), indicating a **performance ceiling driven by feature separability**. Therefore, model selection was based on **robustness, interpretability, and suitability for tabular data**, not accuracy alone.
 
 ---
 
-## 🧮 Streamlit App (`app.py`)
+### ✅ Final Model Choice: XGBoost
 
-### Features:
-- Interactive input fields for:
-  - Demographics: `Age`, `Gender`, `Geography`
-  - Account details: `CreditScore`, `Tenure`, `NumOfProducts`, etc.
-  - Financials: `Balance`, `EstimatedSalary`
-- Predicts churn probability in real-time using the trained ANN model.
-- Displays:
-  - **Churn Probability (%):** with confidence bar
-  - **Risk Category:** Low / Moderate / High
-  - **Strategic Recommendations**
-  - **Mock Feature Importance**
-  - **Model performance metrics & training history**
+XGBoost was selected because it:
+
+* Performs exceptionally well on structured/tabular data
+* Captures non-linear feature interactions efficiently
+* Requires less data and tuning than ANN
+* Provides strong **feature importance and explainability**
+
+The ANN model is retained as a **benchmark**, implemented in `Churn_Modelling_Training.ipynb`, to compare deep learning against classical ML approaches.
+
+---
+
+
+## 📊 Model Evaluation Metrics
+
+Given the imbalanced nature of churn prediction, models were evaluated using:
+
+* Accuracy 
+* Recall 
+* F1-score
+
+Accuracy was **not used as the sole decision metric**.
+
+---
+
+## 🔍 Model Explainability (SHAP)
+
+To improve transparency and business trust, **SHAP (SHapley Additive exPlanations)** was used with the XGBoost model to:
+
+* Identify the most influential features driving churn
+* Explain individual predictions
+* Support data-driven business decisions
+
+This step highlights the importance of **interpretability in real-world ML systems**.
+
+---
+
+## 🌐 Deployment
+
+* Developed an interactive **Streamlit web application** (`app.py`)
+* Allows users to input customer details and receive real-time churn probability
+* Integrated trained XGBoost model and saved preprocessing pipeline for inference
 
 ---
 
@@ -130,14 +157,14 @@ https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app
 
 ---
 
-## 🧾 Requirements
-- tensorflow==2.20.0
-- pandas
-- numpy
-- scikit-learn
-- tensorboard
-- matplotlib
-- streamlit
+## 🛠 Tech Stack
+
+* **Programming:** Python
+* **Machine Learning:** XGBoost, Random Forest, Scikit-learn
+* **Deep Learning:** TensorFlow, Keras
+* **Explainability:** SHAP
+* **Data Processing:** Pandas, NumPy
+* **Deployment:** Streamlit
 
 ---
 
@@ -152,13 +179,18 @@ https://customer-churn-prediction-using-ann-6uasmkhzxz4ht3xu372ytx.streamlit.app
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/519a4be4-8101-41f2-b2dd-1124600d9eb1" />
 
 
-
-
 --- 
 
-## 🧩 Future Improvements
+## 🚀 Key Takeaways
 
-- Add SHAP-based feature importance visualization.
+* Demonstrates **comparative model evaluation and informed model selection**
+* Highlights handling of **imbalanced classification problems**
+* Balances **ML performance, interpretability, and engineering best practices**
+* Shows when deep learning is *not* the optimal solution for tabular data
+
+---
+
+## 🧩 Future Improvements
 
 - Implement model explainability dashboard.
 
@@ -179,6 +211,10 @@ Mridul Lata
 🔗 www.linkedin.com/in/mridullata
 
 🔗 https://github.com/mridul0010/Customer-Churn-Prediction-Using-ANN
+
+---
+
+📌 *This project focuses on real-world ML decision-making, not blind accuracy optimization.*
 
 ---
 
