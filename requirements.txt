@@ -3,6 +3,8 @@ pandas
 numpy
 scikit-learn
 tensorboard
+xgboost
 matplotlib
 SHAP
 streamlit
+
