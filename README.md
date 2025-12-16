@@ -30,7 +30,7 @@ Customer churn significantly impacts business revenue. The objective of this pro
 
 ├── Churn_Modelling_Training.ipynb # Model training notebook
 
-├── Churn_Modelling.csv # Dataset used for training
+├── train.csv # Dataset used for training
 
 ├── pipeline.pkl # Preprocessing and Model Pipeline
 
