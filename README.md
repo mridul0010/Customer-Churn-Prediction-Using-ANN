@@ -26,15 +26,13 @@ Customer churn significantly impacts business revenue. The objective of this pro
 
 ## 📂 Project Structure
 
-├── Churn_Modelling_Training.ipynb # Model training notebook
+├── Model_Selection.ipynb # Model Selection notebook
 
-├── Churn_Modelling_Predict.ipynb # Model prediction notebook
+├── Churn_Modelling_Training.ipynb # Model training notebook
 
 ├── Churn_Modelling.csv # Dataset used for training
 
-├── model.keras # Trained ANN model (TensorFlow/Keras)
-
-├── preprocessed.pkl # Preprocessing pipeline (ColumnTransformer)
+├── pipeline.pkl # Preprocessing and Model Pipeline
 
 ├── app.py # Streamlit web application
 
@@ -121,8 +119,8 @@ This step highlights the importance of **interpretability in real-world ML syste
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/mridul0010/customer-churn-prediction.git
-cd customer-churn-prediction
+git clone https://github.com/mridul0010/Customer-Churn-Prediction-Using-Machine-Learning-Deep-Learning.git
+cd Customer-Churn-Prediction-Using-Machine-Learning-Deep-Learning
 ```
 
 
