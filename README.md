@@ -1,5 +1,4 @@
 # Customer Churn Prediction Using Machine Learning & Deep Learning
-Customer Churn Prediction using Deep Learning (ANN). Full workflow from EDA and feature analysis to model training and prediction.
 
 ## 📌 Project Overview
 
