@@ -207,7 +207,7 @@ Mridul Lata
 
 🔗 www.linkedin.com/in/mridullata
 
-🔗 https://github.com/mridul0010/Customer-Churn-Prediction-Using-ANN
+🔗 https://github.com/mridul0010/Customer-Churn-Prediction-Using-Machine-Learning-Deep-Learning
 
 ---
 
